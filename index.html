@@ -18,7 +18,9 @@
         let blockSize = 10;
         let widthInBlocks = width / blockSize;
         let heightInBlock = height / blockSize;
-        
+
+        let score = 0;
+
         let intervalId = setInterval(function(){
             ctx.clearRect(0,0,width,height);
             drawScore();
