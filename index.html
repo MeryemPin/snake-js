@@ -10,7 +10,14 @@
     <canvas id="canvas" width="500" height="500"></canvas>
     <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
     <script>
-        
+        let intervalId = setInterval(function(){
+            ctx.clearRect(0,0,width,height);
+            drawScore();
+            snake.move();
+            snake.draw();
+            apple.draw();
+            drawBorder();
+        },100)
     </script>
 </body>
 </html>
