@@ -33,9 +33,20 @@
             ctx.fillRect(width - blockSize, 0, blockSize, height);
         };
 
+        let drawScore = function(){
+            // standard bottom left
+            ctx.textBaseline = "top";
+            // horizontale Textposition relativ zum Grundlinienpunkt => left - center - right
+            // ctx.textAlign = "left"
+            // Size and Font change
+            ctx.font = "20px Courier";
+            ctx.fillStyle = "Black";
+            ctx.textAlign = "left";
+            ctx.fillText("Score: " + score , blockSize,blockSize);
+        }
         let intervalId = setInterval(function(){
             // ctx.clearRect(0,0,width,height);
-            // drawScore();
+            drawScore();
             // snake.move();
             // snake.draw();
             // apple.draw();
