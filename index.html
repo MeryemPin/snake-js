@@ -21,12 +21,24 @@
 
         let score = 0;
 
+        let drawBorder = function(){
+            ctx.fillStyle = "Gray";
+            // border top
+            ctx.fillRect(0,0,width,blockSize);
+            // border bottom
+            ctx.fillRect(0,height - blockSize, width, blockSize);
+            // border left
+            ctx.fillRect(0, 0, blockSize, height);
+            // border right
+            ctx.fillRect(width - blockSize, 0, blockSize, height);
+        };
+
         let intervalId = setInterval(function(){
-            ctx.clearRect(0,0,width,height);
-            drawScore();
-            snake.move();
-            snake.draw();
-            apple.draw();
+            // ctx.clearRect(0,0,width,height);
+            // drawScore();
+            // snake.move();
+            // snake.draw();
+            // apple.draw();
             drawBorder();
         },100)
     </script>
