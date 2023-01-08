@@ -60,6 +60,13 @@
             this.column = column;
         };
 
+        Block.prototype.drawSquare = function(color) {
+            let x = this.row * blockSize;
+            let y = this.column * blockSize;
+            ctx.fillStyle = color;
+            ctx.fillRect(x,y, blockSize, blockSize);
+        };
+        
         let intervalId = setInterval(function(){
             // ctx.clearRect(0,0,width,height);
             drawScore();
