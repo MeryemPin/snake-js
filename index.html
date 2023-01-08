@@ -84,6 +84,10 @@
             circle(centerX, centerY, blockSize/2, true);
         };
 
+        Block.prototype.equal = function(otherBlock) {
+            return this.row === otherBlock.row && this.column === otherBlock;
+        };
+
         let intervalId = setInterval(function(){
             // ctx.clearRect(0,0,width,height);
             drawScore();
