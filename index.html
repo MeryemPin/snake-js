@@ -54,6 +54,12 @@
             ctx.fillText("Game Over", width / 2, height / 2);
         };
 
+        // Block Constructer
+        let Block = function(row, column){
+            this.row = row;
+            this.column = column;
+        };
+
         let intervalId = setInterval(function(){
             // ctx.clearRect(0,0,width,height);
             drawScore();
