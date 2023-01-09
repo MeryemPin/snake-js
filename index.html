@@ -160,6 +160,19 @@
             40: "down"
         };
 
+        Snake.prototype.setDirection = function(newDirection){
+            if(this.direction === "up" && newDirection === "down"){
+                return;
+            } else if(this.direction === "rigth" && newDirection === "left"){
+                return;
+            } else if(this.direction === "down" && newDirection === "up"){
+                return;
+            } else if(this.direction === "left" && newDirection === "right"){
+                return;
+            }
+            this.nextDirection = newDirection;
+        };
+
         $("body").keydown(function(event){
             let newDirection = directions[event.keyCode];
             if(newDirection !== undefined){
