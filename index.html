@@ -88,7 +88,7 @@
             return this.row === otherBlock.row && this.column === otherBlock;
         };
 
-        let snake = function() {
+        let Snake = function() {
             this.segment = [
                 new Block(7,5),
                 new Block(6,5),
@@ -98,11 +98,41 @@
             this.nextDirection = "right";
         };
 
-        snake.prototype.draw = function(){
+        Snake.prototype.draw = function(){
             for(let i = 0; i < this.segment.length; i++){
                 this.segment[i].drawSquare("Blue");
             }
         };
+
+        Snake.prototype.move = function() {
+            let head = this.segment[0];
+            let newHead;
+
+            this.direction = this.nextDirection;
+
+            if(this.direction === "right"){
+                newHead = new Block(head.row + 1 , head.column);
+            } else if(this.direction === "down") {
+                newHead = new Block(head.row, head.column + 1);
+            } else if(this.direction === "left") {
+                newHead = this.direction(head.row - 1, this.column);
+            } else if(this.direction === "up") {
+                newHead =  this.direction(head.row, head.column - 1);
+            }
+
+            if(this.collisionCheck(newHead)){
+                gameOver();
+                return;
+            }
+
+            this.segment.unshift(newHead);
+            if(newHead.equal(apple.position)){
+                score++;
+                apple.move();
+            } else {
+                this.segment.pop();
+            }
+        }
 
         let intervalId = setInterval(function(){
             // ctx.clearRect(0,0,width,height);
