@@ -130,8 +130,27 @@
                 score++;
                 apple.move();
             } else {
+                // der schwanz der schlange wird hier entfernt
                 this.segment.pop();
             }
+        }
+
+        Snake.prototype.collisionCheck = function(head) {
+            let collisionLeft = (head.row === 0);
+            let collisionUp = (head.column === 0);
+            let collisionRight = (head.row === widthInBlocks - 1);
+            let collisionDown = (head.column === heightInBlock - 1);
+
+            let collisionWall = collisionLeft || collisionUp || collisionRight || collisionDown;
+
+            let collisionSelf = false;
+
+            for(let i = 0; i < this.segment.length; i++) {
+                if(head.equal(this.segment[i])) {
+                    collisionSelf = true;
+                }
+            }
+            return collisionWall || collisionSelf;
         }
 
         let intervalId = setInterval(function(){
