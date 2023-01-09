@@ -176,7 +176,11 @@
         let Apple = function(){
             this.position = new Block(10,10);
         };
-        
+
+        Apple.prototype.draw = function(){
+            this.position.drawCircle("LimeGreen");
+        };
+
         $("body").keydown(function(event){
             let newDirection = directions[event.keyCode];
             if(newDirection !== undefined){
