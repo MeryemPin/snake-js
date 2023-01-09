@@ -173,6 +173,10 @@
             this.nextDirection = newDirection;
         };
 
+        let Apple = function(){
+            this.position = new Block(10,10);
+        };
+        
         $("body").keydown(function(event){
             let newDirection = directions[event.keyCode];
             if(newDirection !== undefined){
