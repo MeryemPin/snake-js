@@ -181,6 +181,13 @@
             this.position.drawCircle("LimeGreen");
         };
 
+        Apple.prototype.move = function(){
+            let randomRow = Math.floor(Math.random()* (widthInBlocks - 2) + 1);
+            let randomColumn = Math.floor(Math.random()* (heightInBlock - 2) + 1);
+
+            this.position = new Block(randomRow, randomColumn);
+        };
+
         $("body").keydown(function(event){
             let newDirection = directions[event.keyCode];
             if(newDirection !== undefined){
